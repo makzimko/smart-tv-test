@@ -1,0 +1,28 @@
+{
+  "name": "smart-tv-test",
+  "description": "Test",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "NODE_ENV=DEV webpack-dev-server --open --hot",
+    "build": "NODE_ENV=BUILD webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makzimko/smart-tv-test.git"
+  },
+  "author": "Maxim Tkachuk (uakorn@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makzimko/smart-tv-test/issues"
+  },
+  "homepage": "https://github.com/makzimko/smart-tv-test#readme",
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  }
+}
