@@ -15,7 +15,11 @@ var config = {
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['.js', '.css']
+        extensions: ['.js', '.css'],
+        modules: [
+            'node_modules',
+            './src'
+        ]
     },
 
     module: {
@@ -45,7 +49,7 @@ var config = {
     }
 };
 
-if (NODE_ENV = "BUILD") {
+if (NODE_ENV == "BUILD") {
     config.module.loaders = [{
         test: /\.css/,
         use: ExtractTextPlugin.extract({

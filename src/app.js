@@ -1,14 +1,18 @@
 var FlickrService = require('./services/flickr');
 
+var Gallery = require('./components/gallery');
+
 FlickrService.getPhotos(0, function(success, data) {
     console.log(success, data);
 
     var imgContainer = document.querySelector('.photos');
 
-    for(i = 0; i < data.photo.length; i++) {
-        var img = document.createElement('img');
-        img.src = FlickrService.getPhotoUrl(data.photo[i]);
+    var imgs = data.photo.slice(0,5);
+    var galleryRow = new Gallery.Row(imgs);
 
-        imgContainer.appendChild(img);
-    }
+    imgContainer.appendChild(galleryRow.getElement());
+
+    setTimeout(function() {
+        galleryRow.focusElement(1);
+    }, 3000);
 });
