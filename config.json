@@ -1,0 +1,8 @@
+{
+  "flickr": {
+    "apiKey": "0430db1dc9424328eb3e8cd6177aa84f",
+    "uri": "https://api.flickr.com/services/rest/",
+    "method": "flickr.interestingness.getList",
+    "pageSize": 50
+  }
+}

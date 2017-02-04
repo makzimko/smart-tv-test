@@ -1,4 +1,5 @@
 var NODE_ENV = process.env.NODE_ENV || 'DEV';
+var CONFIG = require("./config.json");
 
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -25,7 +26,11 @@ var config = {
     },
 
     plugins: [
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin('styles.css'),
+        new webpack.DefinePlugin({
+            NODE_ENV: JSON.stringify(NODE_ENV),
+            CONFIG: JSON.stringify(CONFIG)
+        })
     ],
 
     watch: NODE_ENV == 'DEV',
@@ -47,7 +52,16 @@ if (NODE_ENV = "BUILD") {
             fallback: "style-loader",
             use: "css-loader"
         })
-    }]
+    }];
+
+    config.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                drop_console: true,
+                unsafe: true
+            }
+        })
+    );
 }
 
 module.exports = config;
