@@ -1,4 +1,9 @@
 var FlickrService = require('./services/flickr');
+var MovementService = require('./services/movement');
+
+MovementService.init(function(changeRow, direction){
+    console.log(changeRow, direction);
+});
 
 var Gallery = require('./components/gallery');
 

@@ -53,11 +53,11 @@ var GalleryRow = function GalleryRow(data) {
      */
     this.setPosition = function(position) {
         var classes = {
-            '-2': consts.classes.topInactive,
-            '-1': consts.classes.top,
+            '2': consts.classes.topInactive,
+            '1': consts.classes.top,
             '0': consts.classes.active,
-            '1': consts.classes.bottom,
-            '2': consts.classes.bottomInactive
+            '-1': consts.classes.bottom,
+            '-2': consts.classes.bottomInactive
         };
 
         var currentClass = classes[rowPosition];

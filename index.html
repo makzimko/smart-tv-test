@@ -8,5 +8,21 @@
 <body>
     <div class="photos"></div>
     <script src="build/app.js"></script>
+    <script type="text/javascript">
+        function diff(a,b) {
+            var r = {};
+
+            for (key in a) {
+                var prev = b[key] && b[key].toString();
+                var now = a[key] && a[key].toString();
+
+
+                if (prev != now) {
+                    r[key] = b[key] + ' - ' + a[key]
+                }
+            }
+            return r;
+        }
+    </script>
 </body>
 </html>
