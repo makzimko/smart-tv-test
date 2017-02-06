@@ -21,8 +21,8 @@ var MovementService = function MovementService() {
      */
     function bindEvents() {
         document.addEventListener('keyup', onKeyUp);
-        // document.addEventListener('wheel', onWheelStart);
-        // document.addEventListener('mousewheel', onWheelStart);
+        document.addEventListener('wheel', onWheelStart);
+        document.addEventListener('mousewheel', onWheelStart);
     }
 
     /**
@@ -50,13 +50,10 @@ var MovementService = function MovementService() {
      * @param {Evant} e
      */
     function onWheelStart(e) {
-        if (wheelTimeout) {
-            clearTimeout(wheelTimeout);
+        if (!wheelTimeout) {
+            callbackFunc(true, e.wheelDeltaY < 0 ? 1 : -1);
+            wheelTimeout = setTimeout(onWheelEnd, 1000);
         }
-        wheelTimeout = setTimeout(
-            onWheelEnd.bind(null, e.wheelDeltaY < 0 ? 1 : -1),
-            100
-        );
     }
 
     /**
@@ -64,8 +61,7 @@ var MovementService = function MovementService() {
      * @param {Number} direction
      */
     function onWheelEnd(direction) {
-        clearTimeout(wheelTimeout);
-        callbackFunc(true, direction);
+        wheelTimeout = null;
     }
 };
 
