@@ -6,8 +6,49 @@ body {
     padding: 0;
     margin: 0;
     background: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
+/**
+    Gallery row
+**/
+.gallery-row {
+    position: absolute;
+    height: 40%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all .3s;
+    opacity: 0.3;
+}
+
+.gallery-row-active {
+    z-index: 1;
+    opacity: 1;
+}
+
+.gallery-row-top {
+    transform: translate(0, -100%);
+    opacity: .5;
+}
+.gallery-row-top-inactive {
+    transform: translate(0, -200%);
+    opacity: 0.3;
+}
+
+.gallery-row-bottom {
+    transform: translate(0, 100%);
+    opacity: .5;
+}
+.gallery-row-bottom-inactive {
+    transform: translate(0, 200%);
+    opacity: 0.3;
+}
 
 /**
     Gallery item
@@ -15,7 +56,7 @@ body {
 .gallery-item {
     position: relative;
     width: 20%;
-    height: 100px;
+    height: 100%;
     float: left
 }
 

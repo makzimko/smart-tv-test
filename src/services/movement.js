@@ -21,8 +21,8 @@ var MovementService = function MovementService() {
      */
     function bindEvents() {
         document.addEventListener('keyup', onKeyUp);
-        document.addEventListener('wheel', onWheelStart);
-        document.addEventListener('mousewheel', onWheelStart);
+        // document.addEventListener('wheel', onWheelStart);
+        // document.addEventListener('mousewheel', onWheelStart);
     }
 
     /**
@@ -31,7 +31,6 @@ var MovementService = function MovementService() {
      */
     function onKeyUp(e) {
         var key = e.keyCode;
-        console.log(key);
 
         var changeRow = key % 2 == 0;
         var direction;

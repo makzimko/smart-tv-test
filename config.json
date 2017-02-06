@@ -4,5 +4,8 @@
     "uri": "https://api.flickr.com/services/rest/",
     "method": "flickr.interestingness.getList",
     "pageSize": 50
+  },
+  "gallery": {
+    "rowSize": 5
   }
 }
