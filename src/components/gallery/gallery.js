@@ -112,7 +112,7 @@ var Gallery = function Gallery(rootElement) {
         if (changeRow) {
             moveRow(direction);
         } else {
-            moveInFow(direction);
+            moveInRow(direction);
         }
     }
 
@@ -120,7 +120,7 @@ var Gallery = function Gallery(rootElement) {
      * Move for between items in row
      * @param {Number} direction
      */
-    function moveInFow(direction) {
+    function moveInRow(direction) {
         var newIndex = data.currentItem + direction;
         if (newIndex < 0 || newIndex >= data.rowSize) {
             return;
@@ -144,7 +144,7 @@ var Gallery = function Gallery(rootElement) {
         // detect when element would be added to DOM
         root.addEventListener('DOMNodeInserted', function(e) {
             root.removeEventListener(e.type, arguments.callee);
-            window.requestAnimationFrame(animateRow.bind(null, direction));
+            setTimeout(animateRow.bind(null, direction), 10);
         });
         addRow(direction);
     }
@@ -222,8 +222,6 @@ var Gallery = function Gallery(rootElement) {
     }
 
     function cleanUpData(direction) {
-        console.log(data.currentPage, data.currentRow, data.photo.length);
-
         var rowsInPage = data.pageSize / data.rowSize;
         // check if new data needed
         if (
@@ -249,11 +247,13 @@ var Gallery = function Gallery(rootElement) {
         if (direction > 0 && data.currentRow == rowsInPage + 1) {
             data.currentRow -= rowsInPage;
             data.currentPage++;
-            data.photo = data.photo.slice(data.pageSize)
+            data.photo = data.photo.slice(data.pageSize);
+            data.rows -= rowsInPage;
         }
 
         if (direction < 0 && data.currentRow == rowsInPage - 2) {
             data.photo = data.photo.slice(0, data.pageSize);
+            data.rows -= rowsInPage;
         }
     }
 };

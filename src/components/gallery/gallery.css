@@ -24,7 +24,7 @@ body {
     right: 0;
     bottom: 0;
     transition: all .3s;
-    opacity: 0.3;
+    opacity: 0.1;
 }
 
 .gallery-row-active {
@@ -34,20 +34,20 @@ body {
 
 .gallery-row-top {
     transform: translate(0, -100%);
-    opacity: .5;
+    opacity: .4;
 }
 .gallery-row-top-inactive {
     transform: translate(0, -200%);
-    opacity: 0.3;
+    opacity: 0.1;
 }
 
 .gallery-row-bottom {
     transform: translate(0, 100%);
-    opacity: .5;
+    opacity: .4;
 }
 .gallery-row-bottom-inactive {
     transform: translate(0, 200%);
-    opacity: 0.3;
+    opacity: .1;
 }
 
 /**
@@ -57,7 +57,12 @@ body {
     position: relative;
     width: 20%;
     height: 100%;
-    float: left
+    float: left;
+    filter: grayscale(75%);
+}
+
+.gallery-item-active {
+    filter: grayscale(0);
 }
 
 .gallery-item .gallery-item-img {
